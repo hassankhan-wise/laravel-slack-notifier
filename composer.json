@@ -1,0 +1,55 @@
+{
+    "name": "hkwise/laravel-slack-notifier",
+    "description": "A comprehensive Laravel package for sending Slack notifications via Webhooks and Web API with support for simple and block messages",
+    "keywords": [
+        "laravel",
+        "slack",
+        "notifications",
+        "webhook",
+        "chat",
+        "messaging"
+    ],
+    "homepage": "https://github.com/hassankhan-wise/laravel-slack-notifier",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HKWise\\LaravelSlackNotifier\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HKWise\\LaravelSlackNotifier\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hassankhan-wise",
+            "email": "hassankhan.infinitewise@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HKWise\\LaravelSlackNotifier\\SlackNotifierServiceProvider"
+            ],
+            "aliases": {
+                "SlackNotifier": "HKWise\\LaravelSlackNotifier\\Facades\\SlackNotifier"
+            }
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5|^10.0",
+        "orchestra/testbench": "^7.0|^8.0|^9.0"
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
