@@ -87,12 +87,27 @@ SLACK_BOT_ICON=:robot_face:
 4. Under **"Scopes"** → **"Bot Token Scopes"**, add these permissions:
    - `chat:write` (Send messages)
    - `chat:write.public` (Send messages to public channels without joining)
+   - `groups:read` (May be required for private channels)
+   - `groups:write` (May be required for private channels)
 5. Click **"Install to Workspace"** at the top
 6. Copy the **"Bot User OAuth Token"** (starts with `xoxb-`)
 7. Add it to your `.env` as `SLACK_BOT_TOKEN`
 
 **Pros**: Can send to any channel dynamically <br/>
 **Cons**: Requires more setup, need to manage tokens
+
+### Channel Formatting
+
+You can specify channels in multiple ways:
+- **With hash**: `#general`, `#my-channel`
+- **Without hash**: `general`, `my-channel`
+- **Channel ID**: `C1234567890` (starts with 'C')
+- **Direct messages**: `@username` or user ID `U1234567890`
+
+**For Private Channels:**
+- Your bot must be invited to the private channel before it can send messages
+- In the private channel, type: `/invite @YourBotName`
+- Or click channel name → Integrations → Add apps → Select your bot
 
 ## Usage
 
@@ -423,6 +438,7 @@ Common errors:
 - `Slack webhook URL is not configured` - Add `SLACK_WEBHOOK_URL` to `.env`
 - `Slack API token is not configured` - Add `SLACK_BOT_TOKEN` to `.env`
 - `Channel is required for API method` - Use `->to('#channel')` when using API method
+- `channel_not_found` - Bot needs to be invited to the private channel. Use `/invite @BotName` in the channel
 
 ## Disabling Notifications
 
